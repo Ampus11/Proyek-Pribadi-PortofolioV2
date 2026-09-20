@@ -1,0 +1,187 @@
+/* Modern Minimalist Portfolio Styling - Craft & Human Focused */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --bg-base: #090a0f;
+    --bg-surface: #11131a;
+    --bg-card: #151822;
+    --bg-card-hover: #1a1e2b;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.18);
+    --text-main: #f4f4f6;
+    --text-muted: #9499ab;
+    --accent-indigo: #6366f1;
+    --accent-sky: #0ea5e9;
+    --accent-emerald: #10b981;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-base);
+    color: var(--text-main);
+}
+
+/* Subtle & Minimal Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #090a0f;
+}
+::-webkit-scrollbar-thumb {
+    background: #232733;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #343a4c;
+}
+
+/* Subtle Canvas Lighting (No Tacky Giant Neon Blobs) */
+.canvas-grid {
+    background-image: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.12) 0%, rgba(9, 10, 15, 0) 65%);
+}
+
+.subtle-dots {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* Modern Card Surfaces */
+.craft-card {
+    background: #12141c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.craft-card:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Clean Header Nav */
+.craft-nav {
+    background: rgba(9, 10, 15, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Nav Links with Understated Indicator */
+.nav-link {
+    position: relative;
+    color: #9499ab;
+    transition: color 0.15s ease;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+}
+
+.nav-link.active {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 2px;
+    background: #6366f1;
+    border-radius: 2px;
+}
+
+/* Filter Tab Pills */
+.filter-btn {
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #12141c;
+    color: #9499ab;
+}
+
+.filter-btn:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.2);
+    background: #171a24;
+}
+
+.filter-btn.active {
+    background: #ffffff;
+    color: #090a0f;
+    border-color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
+}
+
+/* Code & Tech Pill Badges */
+.tech-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Subtle Status Dot */
+.status-indicator {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 9999px;
+    background-color: #10b981;
+}
+
+.status-glow {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 9999px;
+    background-color: rgba(16, 185, 129, 0.35);
+    animation: statusPulse 2.5s infinite ease-out;
+}
+
+@keyframes statusPulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+/* Toast Copy Notification */
+#toastNotification {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 100;
+}
+
+#toastNotification.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
