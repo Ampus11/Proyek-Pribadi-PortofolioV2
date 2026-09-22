@@ -3,7 +3,9 @@
  * Settings & Profile Management
  * Modern Minimalist Styling Matching Main Portfolio
  */
-require_once __DIR__ . '/admin-header.php';
+require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../includes/functions.php';
+require_admin();
 
 // Handle POST actions
 if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
@@ -100,6 +102,7 @@ $happy_clients = get_setting($pdo, 'happy_clients', '');
 $github_url = get_setting($pdo, 'github_url', '');
 $linkedin_url = get_setting($pdo, 'linkedin_url', '');
 $instagram_url = get_setting($pdo, 'instagram_url', '');
+require_once __DIR__ . '/admin-header.php';
 ?>
 
 <!-- Header -->

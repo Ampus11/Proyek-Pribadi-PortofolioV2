@@ -3,7 +3,9 @@
  * CRUD Skills Management
  * Modern Minimalist Styling Matching Main Portfolio
  */
-require_once __DIR__ . '/admin-header.php';
+require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../includes/functions.php';
+require_admin();
 
 $edit_id = isset($_GET['edit']) ? (int)$_GET['edit'] : 0;
 $skill_to_edit = null;
@@ -68,6 +70,8 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 
 // Fetch all skills
 $skills = $pdo->query("SELECT * FROM skills ORDER BY category ASC, proficiency DESC")->fetchAll();
+
+require_once __DIR__ . '/admin-header.php';
 ?>
 
 <!-- Header -->

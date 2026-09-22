@@ -3,7 +3,9 @@
  * CRUD Testimonials Management
  * Modern Minimalist Styling Matching Main Portfolio
  */
-require_once __DIR__ . '/admin-header.php';
+require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../includes/functions.php';
+require_admin();
 
 $edit_id = isset($_GET['edit']) ? (int)$_GET['edit'] : 0;
 $testi_to_edit = null;
@@ -74,6 +76,8 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 
 // Fetch all testimonials
 $testimonials = $pdo->query("SELECT * FROM testimonials ORDER BY id DESC")->fetchAll();
+
+require_once __DIR__ . '/admin-header.php';
 ?>
 
 <!-- Header -->

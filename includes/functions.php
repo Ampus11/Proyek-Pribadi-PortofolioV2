@@ -3,6 +3,11 @@
  * Helper Functions for Portfolio Website
  */
 
+// Enable output buffering to prevent premature header output
+if (!ob_get_level()) {
+    ob_start();
+}
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }

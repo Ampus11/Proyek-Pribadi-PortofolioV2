@@ -3,7 +3,9 @@
  * Admin Dashboard
  * Modern Minimalist Styling Matching Main Portfolio
  */
-require_once __DIR__ . '/admin-header.php';
+require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../includes/functions.php';
+require_admin();
 
 // Fetch statistics
 $total_projects = (int)$pdo->query("SELECT COUNT(*) FROM projects")->fetchColumn();
@@ -16,6 +18,8 @@ $recent_messages = $pdo->query("SELECT * FROM messages ORDER BY id DESC LIMIT 5"
 
 // Fetch recent projects
 $recent_projects = $pdo->query("SELECT * FROM projects ORDER BY id DESC LIMIT 4")->fetchAll();
+
+require_once __DIR__ . '/admin-header.php';
 ?>
 
 <!-- Welcome Banner -->
